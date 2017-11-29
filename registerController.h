@@ -4,7 +4,9 @@
 #include "StoreInventory.h"
 #include "order.h"
 
-class registerController
+// (1) inherit IObserver, (2) implement the void update() function
+
+class registerController : public IObserver
 {
 private:
   StoreInventory *database;
@@ -13,6 +15,7 @@ private:
 public:
   registerController(StoreInventory *, order *);
   void processOrder();
+  void update();
 };
 
 #endif

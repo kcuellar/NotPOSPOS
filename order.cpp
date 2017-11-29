@@ -15,6 +15,9 @@ void order::addItem(item i) {
   {
     itemList.push_back(i);
   }
+  // Call the function notifyObservers() within the model when 
+  // the model's state changes, to make sure it updates anything observing it
+  notifyObservers();
 }
 
 std::vector<item> order::getItems() {
@@ -35,6 +38,7 @@ double order::getTax() {
 
 double order::getTotal() {
   return getSubtotal() * (1 + tax);
+  notifyObservers();
 }
 
 double order::balance(double paid) {

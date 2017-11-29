@@ -3,13 +3,16 @@
 #include "order.h"
 #include "customerView.h"
 
-class keypadController
+// (1) inherit IObserver, (2) implement the void update() function
+
+class keypadController : public IObserver
 {
 private:
   order *cart;
   customerView display;
 public:
   keypadController(order *);
+  void update();
 };
 
 #endif
